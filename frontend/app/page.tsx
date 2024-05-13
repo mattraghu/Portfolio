@@ -28,6 +28,7 @@ import {
 } from "@tabler/icons-react";
 
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import ProjectCard from "@/components/ui/project-card";
 
 import Grid from "@/components/ui/grid";
 
@@ -82,7 +83,7 @@ const items = [
 
 export default function Home() {
 	return (
-		<div className="h-[200rem] w-full bg-gradient-to-b from-neutral-950 to-black relative flex flex-col items-center antialiased text-white bg">
+		<div className="h-[700rem] w-full bg-gradient-to-b from-neutral-950 to-black relative flex flex-col items-center antialiased text-white bg">
 			<TracingBeam className="px-4 bg-neutral-950">
 				<div className="max-w-2xlaa mx-auto p-4">
 					<h1 className="relative z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
@@ -246,15 +247,57 @@ export default function Home() {
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
 				>
-					<section
-						id="experiences"
-						// className="flex flex-col items-start justify-start gap-4 sm:py-32 sm:mx-24 md:mx-32 lg:mx-64 xl:mx-96 py-16"
-					>
+					<section id="experiences">
 						<h2 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl text-center w-full my-9">
-							Where I've Worked
+							My Projects
 						</h2>
 
-						<BentoGrid className="max-w-4xl mx-auto">
+						<ProjectCard />
+						{/* {items.map((item, i) => (
+							// <BentoGridItem
+							// 	key={i}
+							// 	title={item.title}
+							// 	description={item.description}
+							// 	header={item.header}
+							// 	icon={item.icon}
+							// 	className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+							// />
+							<ProjectCard />
+						))} */}
+					</section>
+				</Reveal>
+				<Reveal
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
+				>
+					<section id="experiences">
+						<h2 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl text-center w-full my-9">
+							My Work Experiences
+						</h2>
+
+						{items.map((item, i) => (
+							// <BentoGridItem
+							// 	key={i}
+							// 	title={item.title}
+							// 	description={item.description}
+							// 	header={item.header}
+							// 	icon={item.icon}
+							// 	className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+							// />
+							<ProjectCard />
+						))}
+					</section>
+				</Reveal>
+				<Reveal
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
+				>
+					<section id="experiences">
+						<h2 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl text-center w-full my-9">
+							My Skills
+						</h2>
+
+						<BentoGrid>
 							{items.map((item, i) => (
 								<BentoGridItem
 									key={i}
@@ -269,7 +312,7 @@ export default function Home() {
 					</section>
 				</Reveal>
 
-				<BackgroundBeams />
+				<BackgroundBeams className="pointer-events-none h-[40rem]" />
 			</TracingBeam>
 		</div>
 	);
